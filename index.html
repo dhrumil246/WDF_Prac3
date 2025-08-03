@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Side Navigation Menu (Intermediate Extension) -->
+    <div class="hamburger-menu" id="hamburgerMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <nav class="side-nav" id="sideNav">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#registration">Registration</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="container">
+        <div class="registration-form">
+            <h1>User Registration</h1>
+            <form id="registrationForm" novalidate>
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input 
+                        type="text" 
+                        id="fullName" 
+                        name="fullName" 
+                        required 
+                        minlength="2"
+                        maxlength="50"
+                        aria-describedby="fullNameError"
+                    >
+                    <div class="error-message" id="fullNameError"></div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required
+                        aria-describedby="emailError"
+                    >
+                    <div class="error-message" id="emailError"></div>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        required
+                        pattern="[0-9]{10}"
+                        placeholder="1234567890"
+                        aria-describedby="phoneError"
+                    >
+                    <div class="error-message" id="phoneError"></div>
+                </div>
+
+                <!-- Date of Birth -->
+                <div class="form-group">
+                    <label for="dob">Date of Birth *</label>
+                    <input 
+                        type="date" 
+                        id="dob" 
+                        name="dob" 
+                        required
+                        aria-describedby="dobError"
+                    >
+                    <div class="error-message" id="dobError"></div>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        required
+                        minlength="8"
+                        aria-describedby="passwordError passwordStrength"
+                    >
+                    <div class="password-strength-meter">
+                        <div class="strength-bar" id="strengthBar"></div>
+                        <div class="strength-text" id="strengthText">Password Strength</div>
+                    </div>
+                    <div class="error-message" id="passwordError"></div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password *</label>
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        name="confirmPassword" 
+                        required
+                        aria-describedby="confirmPasswordError"
+                    >
+                    <div class="error-message" id="confirmPasswordError"></div>
+                </div>
+
+                <!-- Gender -->
+                <div class="form-group">
+                    <fieldset>
+                        <legend>Gender *</legend>
+                        <div class="radio-group">
+                            <input type="radio" id="male" name="gender" value="male" required>
+                            <label for="male">Male</label>
+                            
+                            <input type="radio" id="female" name="gender" value="female" required>
+                            <label for="female">Female</label>
+                            
+                            <input type="radio" id="other" name="gender" value="other" required>
+                            <label for="other">Other</label>
+                        </div>
+                        <div class="error-message" id="genderError"></div>
+                    </fieldset>
+                </div>
+
+                <!-- Country -->
+                <div class="form-group">
+                    <label for="country">Country *</label>
+                    <select id="country" name="country" required aria-describedby="countryError">
+                        <option value="">Select Country</option>
+                        <option value="us">United States</option>
+                        <option value="ca">Canada</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="in">India</option>
+                        <option value="au">Australia</option>
+                        <option value="de">Germany</option>
+                        <option value="fr">France</option>
+                        <option value="jp">Japan</option>
+                    </select>
+                    <div class="error-message" id="countryError"></div>
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the Terms and Conditions *</label>
+                    </div>
+                    <div class="error-message" id="termsError"></div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage" style="display: none;">
+                <h2>Registration Successful!</h2>
+                <p>Your account has been created successfully.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
